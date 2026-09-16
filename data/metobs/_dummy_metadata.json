@@ -1,0 +1,9 @@
+{
+  "notice": "DUMMY_PLACEHOLDER_DATA_REPLACE_BEFORE_PRODUCTION",
+  "description": "Meteorological observation comparison CSV files are generated placeholders.",
+  "columns": [
+    "date",
+    "observed",
+    "simulated"
+  ]
+}

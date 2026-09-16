@@ -1,0 +1,56 @@
+{
+    "notice":  "DUMMY_PLACEHOLDER_DATA_REPLACE_BEFORE_PRODUCTION",
+    "description":  "All basin average and streamflow CSV files are generated placeholders.",
+    "basinAverageSources":  {
+                                "hops":  [
+                                             "mean_thaw_depth",
+                                             "mean_frost_depth",
+                                             "mean_snow_depth",
+                                             "mean_swe",
+                                             "mean_lz_volume",
+                                             "mean_uz_volume",
+                                             "mean_runoff",
+                                             "open_thaw_depth",
+                                             "open_frost_depth",
+                                             "open_snow_depth",
+                                             "open_swe",
+                                             "open_lz_volume",
+                                             "open_uz_volume",
+                                             "open_runoff",
+                                             "forest_thaw_depth",
+                                             "forest_frost_depth",
+                                             "forest_snow_depth",
+                                             "forest_swe",
+                                             "forest_lz_volume",
+                                             "forest_uz_volume",
+                                             "forest_runoff",
+                                             "bog_thaw_depth",
+                                             "bog_frost_depth",
+                                             "bog_snow_depth",
+                                             "bog_swe",
+                                             "bog_sm_volume",
+                                             "bog_runoff"
+                                         ],
+                                "ecmwf":  [
+                                              "hres_24h_precip",
+                                              "hres_2m_air_temp"
+                                          ],
+                                "hsaf":  [
+                                             "h13_swe",
+                                             "h65_swe"
+                                         ],
+                                "clms":  [
+                                             "swe_5km"
+                                         ]
+                            },
+    "streamflowColumns":  [
+                              "date",
+                              "observations",
+                              "flag",
+                              "hops",
+                              "hops_xgb",
+                              "lstm",
+                              "gru",
+                              "lisflood"
+                          ]
+}

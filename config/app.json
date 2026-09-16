@@ -1,0 +1,93 @@
+{
+  "title": "HOPS Hydrological Prediction, Comparison & Visualisation System (v2.0)",
+  "subtitle": "Kemijoki Hydrological Forecast System",
+  "brandLogo": "assets/logos/hops-logo-lined.png",
+  "defaultCenter": [67.30510530142487, 26.62895157682612],
+  "defaultZoom": 7,
+  "mainMapBounds": [[65.76487563688531, 23.251375773962693], [68.84533496596443, 30.006527379689548]],
+  "projectArea": {
+    "label": "Kemijoki project area",
+    "source": "geojson/kemijoki-project-area.geojson"
+  },
+  "forecastPoints": {
+    "label": "Streamflow forecast points",
+    "source": "geojson/forecast-points.geojson"
+  },
+  "rasterVersion": "hops-sources-dummy-v2",
+  "minZoom": 7,
+  "maxBounds": [[64.2, 20.5], [69.8, 31.5]],
+  "overlayBounds": [[65.76487563688531, 23.251375773962693], [68.84533496596443, 30.006527379689548]],
+  "logos": [
+    {"id": "fmi", "label": "FMI", "src": "assets/logos/fmi-logo.png"},
+    {"id": "digital-waters", "label": "Digital Waters", "src": "assets/logos/diwa-logo.png"},
+    {"id": "cryoscope", "label": "CryoSCOPE", "src": "assets/logos/cryoscope-logo.png"}
+  ],
+  "variables": [
+    {"id": "soil_state", "label": "Soil State", "unit": "index", "palette": "#6dd6ff", "source": "hops", "group": "Mean", "dummy": true, "basinTimeseries": false},
+    {"id": "mean_thaw_depth", "label": "Mean Thaw Depth", "unit": "cm", "palette": "#d49a66", "source": "hops", "group": "Mean", "dummy": true},
+    {"id": "mean_frost_depth", "label": "Mean Frost Depth", "unit": "cm", "palette": "#8ec9ff", "source": "hops", "group": "Mean", "dummy": true},
+    {"id": "mean_snow_depth", "label": "Mean Snow Depth", "unit": "cm", "palette": "#f4fbff", "source": "hops", "group": "Mean", "dummy": true},
+    {"id": "mean_swe", "label": "Mean Snow (SWE)", "unit": "mm", "palette": "#6dd6ff", "source": "hops", "group": "Mean", "dummy": true},
+    {"id": "mean_lz_volume", "label": "Mean LZ Volume", "unit": "mm", "palette": "#74d680", "source": "hops", "group": "Mean", "dummy": true},
+    {"id": "mean_uz_volume", "label": "Mean UZ Volume", "unit": "mm", "palette": "#4fd08b", "source": "hops", "group": "Mean", "dummy": true},
+    {"id": "mean_runoff", "label": "Mean Runoff", "unit": "mm/day", "palette": "#55c7e8", "source": "hops", "group": "Mean", "dummy": true},
+    {"id": "open_thaw_depth", "label": "Open Thaw Depth", "unit": "cm", "palette": "#d49a66", "source": "hops", "group": "Open", "dummy": true},
+    {"id": "open_frost_depth", "label": "Open Frost Depth", "unit": "cm", "palette": "#8ec9ff", "source": "hops", "group": "Open", "dummy": true},
+    {"id": "open_snow_depth", "label": "Open Snow Depth", "unit": "cm", "palette": "#f4fbff", "source": "hops", "group": "Open", "dummy": true},
+    {"id": "open_swe", "label": "Open Snow (SWE)", "unit": "mm", "palette": "#6dd6ff", "source": "hops", "group": "Open", "dummy": true},
+    {"id": "open_lz_volume", "label": "Open LZ Volume", "unit": "mm", "palette": "#74d680", "source": "hops", "group": "Open", "dummy": true},
+    {"id": "open_uz_volume", "label": "Open UZ Volume", "unit": "mm", "palette": "#4fd08b", "source": "hops", "group": "Open", "dummy": true},
+    {"id": "open_runoff", "label": "Open Runoff", "unit": "mm/day", "palette": "#55c7e8", "source": "hops", "group": "Open", "dummy": true},
+    {"id": "forest_thaw_depth", "label": "Forest Thaw Depth", "unit": "cm", "palette": "#d49a66", "source": "hops", "group": "Forest", "dummy": true},
+    {"id": "forest_frost_depth", "label": "Forest Frost Depth", "unit": "cm", "palette": "#8ec9ff", "source": "hops", "group": "Forest", "dummy": true},
+    {"id": "forest_snow_depth", "label": "Forest Snow Depth", "unit": "cm", "palette": "#f4fbff", "source": "hops", "group": "Forest", "dummy": true},
+    {"id": "forest_swe", "label": "Forest Snow (SWE)", "unit": "mm", "palette": "#6dd6ff", "source": "hops", "group": "Forest", "dummy": true},
+    {"id": "forest_lz_volume", "label": "Forest LZ Volume", "unit": "mm", "palette": "#74d680", "source": "hops", "group": "Forest", "dummy": true},
+    {"id": "forest_uz_volume", "label": "Forest UZ Volume", "unit": "mm", "palette": "#4fd08b", "source": "hops", "group": "Forest", "dummy": true},
+    {"id": "forest_runoff", "label": "Forest Runoff", "unit": "mm/day", "palette": "#55c7e8", "source": "hops", "group": "Forest", "dummy": true},
+    {"id": "bog_thaw_depth", "label": "Bog Thaw Depth", "unit": "cm", "palette": "#d49a66", "source": "hops", "group": "Bog", "dummy": true},
+    {"id": "bog_frost_depth", "label": "Bog Frost Depth", "unit": "cm", "palette": "#8ec9ff", "source": "hops", "group": "Bog", "dummy": true},
+    {"id": "bog_snow_depth", "label": "Bog Snow Depth", "unit": "cm", "palette": "#f4fbff", "source": "hops", "group": "Bog", "dummy": true},
+    {"id": "bog_swe", "label": "Bog Snow (SWE)", "unit": "mm", "palette": "#6dd6ff", "source": "hops", "group": "Bog", "dummy": true},
+    {"id": "bog_sm_volume", "label": "Bog SM Volume", "unit": "mm", "palette": "#4fd08b", "source": "hops", "group": "Bog", "dummy": true},
+    {"id": "bog_runoff", "label": "Bog Runoff", "unit": "mm/day", "palette": "#55c7e8", "source": "hops", "group": "Bog", "dummy": true},
+    {"id": "hres_24h_precip", "label": "HRES 24h Precip.", "unit": "mm", "palette": "#8ce0d5", "source": "ecmwf", "group": "ECMWF", "dummy": true},
+    {"id": "hres_2m_air_temp", "label": "HRES 2m Air Temp.", "unit": "C", "palette": "#f0b35a", "source": "ecmwf", "group": "ECMWF", "dummy": true},
+    {"id": "h13_swe", "label": "H13 SWE", "unit": "mm", "palette": "#6dd6ff", "source": "hsaf", "group": "HSAF", "dummy": true},
+    {"id": "h65_swe", "label": "H65 SWE", "unit": "mm", "palette": "#8ec9ff", "source": "hsaf", "group": "HSAF", "dummy": true},
+    {"id": "swe_5km", "label": "SWE 5km", "unit": "mm", "palette": "#f4fbff", "source": "clms", "group": "CLMS", "dummy": true}
+  ],
+  "observationVariables": [
+    {"id": "temperature", "label": "Temperature", "unit": "C"},
+    {"id": "precipitation", "label": "Precipitation", "unit": "mm"}
+  ],
+  "models": [
+    {"id": "hops", "label": "HOPS", "color": "#66d9ef"},
+    {"id": "hops_xgb", "label": "HOPS-XGB", "color": "#f8d56b"},
+    {"id": "lstm", "label": "LSTM", "color": "#b48cff"},
+    {"id": "gru", "label": "GRU", "color": "#ff8fb1"},
+    {"id": "lisflood", "label": "LISFLOOD", "color": "#81d66b"}
+  ],
+  "basins": [
+    {"id": "6501700", "label": "Kemihaara", "lat": 67.19853341174975, "lon": 27.785512523108022, "areaKm2": 0, "extentLon": 0.55, "extentLat": 0.34},
+    {"id": "6503720", "label": "Sinettajarvi", "lat": 66.617942146605742, "lon": 25.427099584942237, "areaKm2": 0, "extentLon": 0.55, "extentLat": 0.34},
+    {"id": "6503600", "label": "Marraskoski", "lat": 66.7948771883473, "lon": 25.420244929297844, "areaKm2": 0, "extentLon": 0.55, "extentLat": 0.34},
+    {"id": "6503510", "label": "Unari", "lat": 67.130470932617072, "lon": 25.747274253422621, "areaKm2": 0, "extentLon": 0.55, "extentLat": 0.34},
+    {"id": "6503200", "label": "Kongas", "lat": 67.878636023045459, "lon": 24.844374139421465, "areaKm2": 0, "extentLon": 0.55, "extentLat": 0.34},
+    {"id": "6503000", "label": "Ounasjarvi", "lat": 68.396118802649994, "lon": 23.752422561759822, "areaKm2": 0, "extentLon": 0.55, "extentLat": 0.34},
+    {"id": "6502400", "label": "Vikajarvi", "lat": 66.621822463212993, "lon": 26.219519118485621, "areaKm2": 0, "extentLon": 0.55, "extentLat": 0.34}
+  ],
+  "observationStations": [
+    {"id": "rovaniemi_met", "label": "Rovaniemi Met Station", "lat": 66.56, "lon": 25.83, "type": "temperature", "dataFile": "fmi_tempc_999999.csv"},
+    {"id": "sodankyla_met", "label": "Sodankyla Met Station", "lat": 67.37, "lon": 26.63, "type": "temperature", "dataFile": "fmi_tempc_999998.csv"},
+    {"id": "kittila_precip", "label": "Kittila Precipitation Station", "lat": 67.66, "lon": 24.90, "type": "precipitation", "dataFile": "fmi_precip_999997.csv"},
+    {"id": "kemijarvi_precip", "label": "Kemijarvi Precipitation Station", "lat": 66.71, "lon": 27.43, "type": "precipitation", "dataFile": "fmi_precip_999996.csv"},
+    {"id": "inari_met", "label": "Inari Met Station", "lat": 68.90, "lon": 27.03, "type": "temperature", "dataFile": "fmi_tempc_999995.csv"}
+  ],
+  "pages": [
+    {"id": "information", "label": "Information", "source": "content/pages/information.md"},
+    {"id": "download", "label": "Download", "source": "content/pages/download.md"},
+    {"id": "contact", "label": "Contact", "source": "content/pages/contact.md"},
+    {"id": "links", "label": "Links", "source": "content/pages/links.md"}
+  ]
+}

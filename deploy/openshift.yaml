@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hops-v2
+  labels:
+    app: hops-v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hops-v2
+  template:
+    metadata:
+      labels:
+        app: hops-v2
+    spec:
+      containers:
+        - name: hops-v2
+          image: image-registry.openshift-image-registry.svc:5000/PROJECT/hops-v2:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: HOPS_HOST
+              value: "0.0.0.0"
+            - name: HOPS_PORT
+              value: "8000"
+            - name: HOPS_BASE_PATH
+              value: ""
+            - name: HOPS_DATA_DIR
+              value: "/opt/app-root/src/data"
+            - name: HOPS_DATA_BASE_URL
+              value: "/data"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 20
+            periodSeconds: 30
+          # For operational data, mount a PVC or object-storage sync target here:
+          # volumeMounts:
+          #   - name: hops-data
+          #     mountPath: /mnt/hops-data
+      # volumes:
+      #   - name: hops-data
+      #     persistentVolumeClaim:
+      #       claimName: hops-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hops-v2
+  labels:
+    app: hops-v2
+spec:
+  selector:
+    app: hops-v2
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: hops-v2
+  labels:
+    app: hops-v2
+spec:
+  to:
+    kind: Service
+    name: hops-v2
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect

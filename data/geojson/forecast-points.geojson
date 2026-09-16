@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "Main_River_Fcast_Points",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "ID": "6501700", "Name": "Kemihaara", "KoordErTmI": 533970, "KoordErTmP": 7453727 }, "geometry": { "type": "Point", "coordinates": [ 27.785512523108022, 67.19853341174975 ] } },
+{ "type": "Feature", "properties": { "ID": "6503720", "Name": "Sinettajarvi", "KoordErTmI": 430349, "KoordErTmP": 7389668 }, "geometry": { "type": "Point", "coordinates": [ 25.427099584942237, 66.617942146605742 ] } },
+{ "type": "Feature", "properties": { "ID": "6503600", "Name": "Marraskoski", "KoordErTmI": 430545, "KoordErTmP": 7409394 }, "geometry": { "type": "Point", "coordinates": [ 25.420244929297844, 66.7948771883473 ] } },
+{ "type": "Feature", "properties": { "ID": "6503510", "Name": "Unari", "KoordErTmI": 445674, "KoordErTmP": 7446472 }, "geometry": { "type": "Point", "coordinates": [ 25.747274253422621, 67.130470932617072 ] } },
+{ "type": "Feature", "properties": { "ID": "6503200", "Name": "Kongas", "KoordErTmI": 409428, "KoordErTmP": 7530912 }, "geometry": { "type": "Point", "coordinates": [ 24.844374139421465, 67.878636023045459 ] } },
+{ "type": "Feature", "properties": { "ID": "6503000", "Name": "Ounasjarvi", "KoordErTmI": 366612, "KoordErTmP": 7590545 }, "geometry": { "type": "Point", "coordinates": [ 23.752422561759822, 68.396118802649994 ] } },
+{ "type": "Feature", "properties": { "ID": "6502400", "Name": "Vikajarvi", "KoordErTmI": 465442, "KoordErTmP": 7389439 }, "geometry": { "type": "Point", "coordinates": [ 26.219519118485621, 66.621822463212993 ] } }
+]
+}

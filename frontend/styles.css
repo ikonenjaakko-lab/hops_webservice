@@ -1,0 +1,1066 @@
+:root {
+  /* Shared color tokens for the dark HOPS interface. */
+  color-scheme: dark;
+  --bg: #081018;
+  --panel: #101b24;
+  --panel-2: #142431;
+  --line: #263a48;
+  --text: #edf7fb;
+  --muted: #9db2bf;
+  --accent: #55c7e8;
+  --green: #63d49a;
+  --warn: #f1c45b;
+  --danger: #ff7f8f;
+}
+
+/* Global reset and base form styling. */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  letter-spacing: 0;
+  overflow: hidden;
+}
+button, select, input {
+  font: inherit;
+  color: var(--text);
+}
+button, select, input[type="date"] {
+  background: #0d1922;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+button {
+  cursor: pointer;
+}
+button:hover, select:hover, input[type="date"]:hover { border-color: var(--accent); }
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* App shell, branding, partner logos, and top navigation. */
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.topbar {
+  min-height: 74px;
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--line);
+  background: #0b151d;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.brand-logo {
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.brand-copy {
+  min-width: 0;
+}
+.brand h1 {
+  margin: 2px 0 0;
+  font-size: 25px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.brand .subtitle {
+  color: var(--muted);
+  font-size: 15px;
+  margin-top: 3px;
+}
+.logos {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transform: translateY(-5px);
+}
+.logo {
+  width: 136px;
+  height: 54px;
+  border: 0;
+  border-radius: 0;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 0;
+  overflow: hidden;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
+.logo-fmi img {
+  transform: scale(0.78) translateY(1px);
+  transform-origin: center center;
+}
+.logo-fmi {
+  margin-right: -18px;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 4px 18px;
+  border-bottom: 1px solid var(--line);
+  background: #0a1219;
+}
+.nav button {
+  padding: 4px 10px;
+  min-height: 28px;
+  font-size: 13px;
+}
+.nav button.active { background: #173141; border-color: var(--accent); }
+
+/* Main map comparison layout: left map, date rail, right map. */
+.main-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px minmax(0, 1fr);
+  gap: 5px;
+  padding: 5px;
+  font-size: 12px;
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-width: 0;
+}
+.map-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  min-height: 0;
+}
+.panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  min-height: 43px;
+  border-bottom: 1px solid var(--line);
+}
+.panel-head-map-a {
+  justify-content: space-between;
+}
+.map-a-layer-toggle {
+  margin-left: auto;
+}
+.control-row { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.source-select {
+  width: 64px;
+  flex: 0 0 auto;
+}
+.segmented-toggle {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.segmented-toggle button {
+  border: 0;
+  border-radius: 0;
+  min-height: 22px;
+  padding: 2px 7px;
+  background: #0a151d;
+  color: var(--muted);
+}
+.segmented-toggle button + button {
+  border-left: 1px solid var(--line);
+}
+.segmented-toggle button.active {
+  background: #173141;
+  color: var(--text);
+}
+
+/* Compact control sizing used inside dense map and basin workspaces. */
+.main-grid button,
+.main-grid select,
+.main-grid input[type="date"],
+.basin-view button,
+.basin-view select,
+.basin-view input[type="date"] {
+  padding: 2px 6px;
+  font-size: 12px;
+  min-height: 24px;
+}
+.main-grid label,
+.basin-view label {
+  font-size: 12px;
+}
+.main-grid input[type="checkbox"],
+.basin-view input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+}
+.map {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: #071015;
+}
+
+/* Horizontal date rail and animation controls in the main map view. */
+.date-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 0;
+  overflow: hidden;
+}
+.date-control-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px;
+  align-items: center;
+  min-height: 43px;
+  padding: 5px;
+  border-bottom: 1px solid var(--line);
+}
+.date-control-row input[type="date"] {
+  width: 100%;
+  min-width: 0;
+}
+.reset-animate-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.reset-animate-row button {
+  flex: 0 0 auto;
+}
+.switch-label {
+  gap: 4px;
+  font-size: 11px;
+}
+.mask-toggle {
+  gap: 5px;
+  color: var(--text);
+  font-size: 12px;
+}
+.mask-toggle input {
+  accent-color: var(--accent);
+}
+.switch-label input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.switch-track {
+  width: 25px;
+  height: 13px;
+  padding: 1px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #071015;
+  display: inline-flex;
+  align-items: center;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+.switch-thumb {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform 140ms ease, background 140ms ease;
+}
+.switch-label input:checked + .switch-track {
+  border-color: var(--accent);
+  background: #174154;
+}
+.switch-label input:checked + .switch-track .switch-thumb {
+  transform: translateX(12px);
+  background: #fff;
+}
+.date-list {
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 5px;
+}
+.date-button {
+  width: 100%;
+  text-align: center;
+  min-height: 23px;
+  padding: 1px 3px;
+  font-size: 11px;
+}
+.date-button.active {
+  background: #1b4252;
+  border-color: var(--accent);
+}
+.date-button.today {
+  color: var(--warn);
+}
+.date-button.forecast {
+  background: #111820;
+  border-color: #3b4650;
+  color: #d2d9de;
+}
+.date-button.active.forecast {
+  background: #1b4252;
+  border-color: var(--accent);
+}
+
+/* Basin detail workspace: plots, date scrubber, and focused basin map. */
+.basin-view {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 6px;
+  padding: 6px;
+  font-size: 13px;
+  overflow: hidden;
+}
+.basin-workspace {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(620px, 1.18fr) 84px minmax(320px, 0.62fr);
+  gap: 6px;
+}
+.basin-plots {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(178px, 1fr) auto minmax(178px, 1fr);
+  gap: 6px;
+}
+.basin-map-panel {
+  min-height: 0;
+}
+.basin-map { min-height: 0; }
+
+/* Basin plot headers and variable/model controls. */
+.plot-panel { padding: 10px; }
+.plot-panel { padding: 6px; }
+.plot-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.basin-average-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 156px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 8px;
+}
+.streamflow-head {
+  grid-template-columns: auto 0 minmax(0, 1fr);
+  column-gap: 10px;
+}
+.streamflow-head .basin-average-controls-b {
+  justify-self: stretch;
+  width: 100%;
+}
+.basin-average-title {
+  justify-self: center;
+  white-space: nowrap;
+}
+.basin-average-controls {
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+.basin-average-controls-a {
+  justify-self: start;
+}
+.basin-average-controls-b {
+  justify-self: end;
+}
+.basin-average-controls select {
+  max-width: 205px;
+}
+.basin-average-controls .variable-select {
+  flex: 1 1 140px;
+  min-width: 92px;
+  width: 190px;
+}
+
+/* Shared SVG plot surface for basin averages and streamflow. */
+.plot {
+  width: 100%;
+  height: 100%;
+  min-height: 145px;
+  display: block;
+  position: relative;
+  background: #0a151d;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: crosshair;
+}
+.plot-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.plot-drag-range {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(85, 199, 232, 0.16);
+  border-left: 1px solid rgba(85, 199, 232, 0.78);
+  border-right: 1px solid rgba(85, 199, 232, 0.78);
+  pointer-events: none;
+}
+.plot-labels {
+  position: absolute;
+  top: 6px;
+  left: 50px;
+  right: 8px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+.plot-labels span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 18px;
+  padding: 1px 6px;
+  border: 1px solid #263a48;
+  border-radius: 4px;
+  background: #0a151d;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+.plot-y-labels {
+  position: absolute;
+  left: 4px;
+  top: 22px;
+  bottom: 30px;
+  width: 36px;
+  pointer-events: none;
+}
+.plot-y-labels span {
+  position: absolute;
+  right: 3px;
+  transform: translateY(50%);
+  color: #8ea7b4;
+  font-size: 9px;
+  line-height: 1;
+  background: rgba(10, 21, 29, 0.78);
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+.plot-y-labels-right {
+  left: auto;
+  right: 4px;
+}
+.plot-y-labels-right span {
+  left: 3px;
+  right: auto;
+}
+.plot-x-labels {
+  position: absolute;
+  left: 44px;
+  right: 18px;
+  bottom: 5px;
+  height: 16px;
+  pointer-events: none;
+}
+.plot-dual-axis .plot-x-labels {
+  right: 48px;
+}
+.plot-x-labels span {
+  position: absolute;
+  transform: translateX(-50%);
+  color: #8ea7b4;
+  font-size: 9px;
+  line-height: 1;
+  white-space: nowrap;
+  background: rgba(10, 21, 29, 0.78);
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+/* Plot panel modes, streamflow controls, and draggable plot splitter. */
+.plot-panel {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+}
+.stream-panel {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+.plot-panel-collapsed {
+  grid-template-rows: auto;
+}
+.plot-kind-select {
+  max-width: 74px;
+}
+.plot-mode-select {
+  width: 142px;
+  max-width: 142px;
+  justify-self: center;
+  font-weight: 700;
+  text-align: center;
+  background: #21546b;
+  border-color: #8ee6ff;
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(85, 199, 232, 0.28), 0 0 12px rgba(85, 199, 232, 0.16);
+}
+.plot-mode-select:hover {
+  background: #28647f;
+  border-color: #baf2ff;
+}
+.streamflow-unit {
+  white-space: nowrap;
+}
+.stream-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  width: 100%;
+}
+.models {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.streamflow-head .models {
+  flex-wrap: nowrap;
+  gap: 5px;
+  font-size: 11px;
+  margin-right: auto;
+}
+.streamflow-head .models label,
+.streamflow-head .stream-stats-toggle {
+  gap: 4px;
+  white-space: nowrap;
+}
+.range-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.range-row button.active { border-color: var(--accent); background: #173141; }
+.basin-range-row,
+.plot-resizer {
+  min-height: 26px;
+  overflow: hidden;
+}
+.plot-resizer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  cursor: row-resize;
+  position: relative;
+}
+.plot-resizer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 1px solid rgba(85, 199, 232, 0.32);
+  pointer-events: none;
+}
+.plot-resizer > * {
+  position: relative;
+  z-index: 1;
+}
+.plot-resizer-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-width: 0;
+}
+.stats-toggle {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding-right: 4px;
+}
+.stats-toggle input {
+  accent-color: var(--warn);
+}
+.stream-stats-toggle {
+  margin-left: 0;
+}
+
+/* Vertical basin date scrubber. Native range input is hidden; custom elements provide the visible rail. */
+.basin-date-rail {
+  min-height: 0;
+  padding: 4px 2px 5px;
+  position: relative;
+  overflow: visible;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 6px;
+  place-items: center;
+}
+.scrubber-year-select {
+  width: 70px;
+  min-height: 22px !important;
+  padding: 1px 5px !important;
+  font-size: 11px !important;
+}
+.scrubber-track-wrap {
+  --scrub-top: 30px;
+  --scrub-bottom: 18px;
+  position: relative;
+  height: 100%;
+  width: 34px;
+  display: grid;
+  place-items: center;
+}
+.vertical-scrubber {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100vh - 230px);
+  max-width: calc(100vh - 230px);
+  min-width: 360px;
+  height: 18px;
+  transform: translate(-50%, -50%) rotate(90deg);
+  accent-color: var(--accent);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.scrubber-visual-track {
+  position: absolute;
+  left: 50%;
+  top: var(--scrub-top);
+  bottom: var(--scrub-bottom);
+  width: 5px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: linear-gradient(#55c7e8, #66615b);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  pointer-events: none;
+}
+.scrubber-visual-handle {
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(8,16,24,0.78);
+  pointer-events: none;
+  z-index: 2;
+}
+.scrubber-date-label {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 8px));
+  z-index: 3;
+  min-width: 74px;
+  text-align: center;
+  padding: 1px 3px;
+  border: 1px solid var(--line);
+  background: #0d1922;
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 10px;
+  pointer-events: none;
+  box-shadow: 0 0 0 2px rgba(8,16,24,0.72);
+}
+.scrubber-end {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 9px;
+  white-space: nowrap;
+}
+.scrubber-start {
+  top: 0;
+}
+.scrubber-finish {
+  bottom: 0;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 5px;
+  margin-top: 6px;
+}
+.stat {
+  background: #0c1720;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px;
+  font-size: 11px;
+}
+.stat strong { display: block; margin-bottom: 3px; }
+.stat span { color: var(--muted); margin-right: 8px; }
+
+/* CMS/admin pages. */
+.page {
+  max-width: 960px;
+  width: calc(100% - 24px);
+  margin: 16px auto;
+  padding: 20px;
+  overflow: auto;
+}
+.page h1 { margin-top: 0; }
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.admin-block {
+  background: #0b161e;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+/* Leaflet map integration and custom map markers. */
+.leaflet-container { background: #cfd4d3; }
+.base-map-tiles {
+  filter: grayscale(0.25) saturate(0.85) contrast(1.05) brightness(0.9);
+}
+.hillshade-tiles {
+  filter: grayscale(1) contrast(4.8) brightness(0.38);
+  mix-blend-mode: multiply;
+}
+.leaflet-control-zoom a,
+.leaflet-bar a {
+  background: #0d1922;
+  border-color: var(--line);
+  color: var(--text);
+}
+.leaflet-control-zoom a:hover,
+.leaflet-bar a:hover {
+  background: #173141;
+  color: #fff;
+}
+.leaflet-control-layers,
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #101b24;
+  color: var(--text);
+}
+.leaflet-control-attribution { display: none; }
+.passive-map {
+  cursor: default;
+}
+.forecast-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.trend-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 4px;
+  background: rgba(8,16,24,0.82);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: 0 1px 2px #000;
+}
+.forecast-marker.up .trend-arrow {
+  color: #7df08d;
+}
+.forecast-marker.down .trend-arrow {
+  color: #ff8f8f;
+}
+.met-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.met-values {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 4px;
+  background: rgba(8,16,24,0.86);
+}
+.met-dot {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--met-color);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.14);
+}
+.met-value {
+  width: 100%;
+  padding: 2px 5px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+.met-value b {
+  color: var(--met-color);
+  margin-right: 2px;
+}
+.met-value.simulated {
+  border-top: 1px solid rgba(141, 166, 180, 0.48);
+}
+.met-value.simulated b {
+  color: #d7e6ed;
+}
+
+/* Floating meteorological observation popup and its embedded mini chart. */
+.met-popup {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 8px;
+  color: var(--text);
+  display: grid;
+  grid-template-rows: auto auto auto minmax(0, 1fr);
+  gap: 5px;
+}
+.met-popup-title {
+  font-weight: 800;
+  padding-right: 28px;
+  cursor: move;
+  user-select: none;
+}
+.met-popup-controls {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+}
+.met-popup-controls label {
+  display: grid;
+  gap: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.met-popup-controls input[type="date"] {
+  min-height: 24px;
+  padding: 2px 5px;
+  font-size: 12px;
+}
+.met-popup-legend {
+  display: flex;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.met-popup-ranges {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-left: auto;
+  justify-content: flex-end;
+  align-self: end;
+}
+.met-popup-ranges button {
+  min-height: 24px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+.met-popup-ranges button.active {
+  border-color: var(--accent);
+  background: #173141;
+}
+.met-popup-legend .obs { color: #ffffff; }
+.met-popup-legend .sim { color: #66d9ef; }
+.met-popup-plot {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #071015;
+  overflow: hidden;
+}
+.met-popup-empty {
+  display: grid;
+  min-height: 120px;
+  height: 100%;
+  place-items: center;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #071015;
+}
+.met-popup-plot-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.met-floating-popup {
+  position: fixed;
+  z-index: 5000;
+  min-width: 300px;
+  min-height: 230px;
+  max-width: calc(100vw - 12px);
+  max-height: calc(100vh - 12px);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #101b24;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.48);
+  overflow: hidden;
+}
+.met-floating-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  min-height: 22px;
+  width: 24px;
+  padding: 0;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.met-resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 18px;
+  height: 18px;
+  cursor: nwse-resize;
+}
+.met-resize-handle::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #7f96a3;
+  border-bottom: 2px solid #7f96a3;
+}
+.met-popup-plot-svg .grid {
+  stroke: #24404d;
+  opacity: 0.45;
+  vector-effect: non-scaling-stroke;
+}
+.met-popup-plot-svg .axis-line {
+  stroke: #496473;
+  vector-effect: non-scaling-stroke;
+}
+.met-popup-plot-svg .tick-label {
+  fill: #9db2bf;
+  font-size: 5px;
+  font-weight: 600;
+}
+.met-popup-y-labels {
+  position: absolute;
+  left: 3px;
+  top: 14px;
+  bottom: 24px;
+  width: 30px;
+  pointer-events: none;
+}
+.met-popup-y-labels span {
+  position: absolute;
+  right: 2px;
+  transform: translateY(50%);
+  color: #9db2bf;
+  font-size: 9px;
+  line-height: 1;
+  background: rgba(7, 16, 21, 0.78);
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+.met-popup-x-labels {
+  position: absolute;
+  left: 34px;
+  right: 10px;
+  top: calc(84% + 4px);
+  height: 12px;
+  pointer-events: none;
+}
+.met-popup-x-labels span {
+  position: absolute;
+  transform: translateX(-50%);
+  color: #9db2bf;
+  font-size: 9px;
+  line-height: 1;
+  background: rgba(7, 16, 21, 0.78);
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+.met-popup-plot-svg .obs-line {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.met-popup-plot-svg .sim-line {
+  fill: none;
+  stroke: #66d9ef;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Responsive fallbacks stack the dense map/basin layouts on narrower screens. */
+@media (max-width: 1100px) {
+  .main-grid { grid-template-columns: 1fr; }
+  .basin-workspace { grid-template-columns: 1fr; }
+  .date-column { grid-template-rows: auto auto auto; }
+  .date-list { max-height: 190px; }
+  body { overflow: auto; }
+  .app { min-height: 100%; height: auto; overflow: visible; }
+  .map { min-height: 420px; }
+}
+@media (max-width: 680px) {
+  .topbar { grid-template-columns: 1fr; }
+  .logos { flex-wrap: wrap; }
+  .logo { min-width: 30%; flex: 1; }
+  .brand { gap: 10px; }
+  .brand-logo {
+    width: 48px;
+    height: 48px;
+  }
+  .brand h1 { font-size: 16px; }
+  .main-grid, .basin-view { padding: 8px; }
+  .map { min-height: 360px; }
+}

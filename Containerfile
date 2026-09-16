@@ -12,7 +12,7 @@ ENV HOPS_HOST=0.0.0.0 \
     HOPS_DATA_BASE_URL=/data \
     HOPS_TILE_URL=https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png
 
-COPY . .
+COPY --chown=1001:0 . .
 
 RUN python scripts/generate_dummy_data.py
 

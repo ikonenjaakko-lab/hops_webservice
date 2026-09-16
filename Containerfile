@@ -14,8 +14,6 @@ ENV HOPS_HOST=0.0.0.0 \
 
 COPY --chown=1001:0 . .
 
-RUN python scripts/generate_dummy_data.py
-
 EXPOSE 8000
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \

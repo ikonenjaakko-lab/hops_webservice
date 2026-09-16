@@ -16,9 +16,11 @@ Modernized mock implementation of the HOPS hydrological forecast visualization a
 ## Run locally
 
 ```powershell
-python .\scripts\generate_dummy_data.py
 python .\server.py
 ```
+
+Set `HOPS_DATA_DIR` to a directory containing the operational basin, observation,
+PNG, and GeoJSON data before starting the service.
 
 Open:
 

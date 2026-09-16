@@ -8,7 +8,7 @@ node_modules/
 *.pptx
 *.zip
 
-# Generated dummy data is recreated during the image build.
+# Runtime data is supplied separately through HOPS_DATA_DIR.
 data/basins/
 data/metobs/
 data/png/

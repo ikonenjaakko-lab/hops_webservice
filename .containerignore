@@ -8,3 +8,9 @@ node_modules/
 *.pptx
 *.zip
 
+# Generated dummy data is recreated during the image build.
+data/basins/
+data/metobs/
+data/png/
+data/watersheds/
+
